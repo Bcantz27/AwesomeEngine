@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import Engine.Gfx.Animator;
 import Engine.World.Position;
 
 public abstract class Entity 
@@ -15,6 +16,10 @@ public abstract class Entity
 	protected Position position = new Position();
 	protected boolean alive;
 	protected BufferedImage image;
+	
+	protected Animator animator = new Animator(2);
+	// 0 = Idle
+	// 1 = Walk
 	
 	public Entity()
 	{
@@ -49,6 +54,11 @@ public abstract class Entity
 	public boolean isAlive()
 	{
 		return alive;
+	}
+	
+	public Animator getAnimator()
+	{
+		return animator;
 	}
 	
 	public Position getPosition()

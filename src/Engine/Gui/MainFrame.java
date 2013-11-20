@@ -77,15 +77,14 @@ public class MainFrame extends JFrame
 	public void setScale(int scale)
 	{
 		this.SCALE = scale;
+		resizeFrame();
 	}
 
 	/* END setters and getters */
 	
 	public void start()
 	{
-		setMinimumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-        setMaximumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-        setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
+		resizeFrame();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -93,5 +92,12 @@ public class MainFrame extends JFrame
 		
 		setVisible(true);
 		pack();
+	}
+	
+	public void resizeFrame()
+	{
+		setMinimumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
+        setMaximumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
+        setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
 	}
 }
