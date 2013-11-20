@@ -1,6 +1,5 @@
 package Engine.Entity;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +14,7 @@ public abstract class Entity
 	protected int id;
 	protected Position position = new Position();
 	protected boolean alive;
+	protected BufferedImage image;
 	
 	public Entity()
 	{
@@ -22,6 +22,7 @@ public abstract class Entity
 		name = "No Name";
 		alive = true;
 		id = 0;
+		//image = LoadImageOfEntity(id);
 	}
 	
 	public Entity(String newName, int newId, int newX, int newY)
@@ -30,7 +31,7 @@ public abstract class Entity
 		name = newName;
 		alive = true;
 		id = newId;
-		//image = LoadImage(id);
+		//image = LoadImageOfEntity(newId);
 	}
 	
 	/* START setters and getters */
@@ -55,6 +56,11 @@ public abstract class Entity
 		return position;
 	}
 	
+	public BufferedImage getImage()
+	{
+		return image;
+	}
+	
 	public void setName(String newName)
 	{
 		name = newName;
@@ -77,7 +83,8 @@ public abstract class Entity
 	
 	/* END setters and getters */
 	
-	public static BufferedImage LoadImage(int id)
+	@SuppressWarnings("unused")
+	private BufferedImage LoadImageOfEntity(int id)
 	{
 		BufferedImage newImage = null;
 		

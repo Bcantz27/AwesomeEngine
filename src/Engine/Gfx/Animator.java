@@ -1,6 +1,5 @@
-package Engine;
+package Engine.Gfx;
 
-import Engine.Gfx.Animation;
 
 public class Animator 
 {

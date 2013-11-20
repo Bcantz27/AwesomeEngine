@@ -5,57 +5,50 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 import Engine.Exceptions.ApplicationAlreadyExistsException;
+import Engine.Exceptions.FrameAlreadyExistsException;
+import Engine.Gui.MainFrame;
 
 public abstract class AwesomeEngine implements Runnable
 {
 	private static final long serialVersionUID = 1L;
-	
-	private static final int WIDTH = 128;
-	private static final int HEIGHT = WIDTH/12*9;
-	private static final int SCALE = 8;
-	public static final String NAME = "Insert Name Here";
 
-	private static AwesomeEngine instance;
+	private static AwesomeEngine instance;					/* Instance of this class (Singleton) */
 	
+	/**
+	 * The constuctor for this class.
+	 * @throws ApplicationAlreadyExistsException
+	 */
 	protected AwesomeEngine() throws ApplicationAlreadyExistsException
 	{
 		if (null == instance)
 		{
 			instance = this;
-		} else
+		} 
+		else
 		{
 			throw new Engine.Exceptions.ApplicationAlreadyExistsException();
 		}
 		
-		JFrame frame = new JFrame(NAME);
-		
-		frame.setMinimumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-        frame.setMaximumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-        frame.setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		
-		frame.setVisible(true);
-		frame.pack();
+		try 
+		{
+			MainFrame frame = new MainFrame();
+			frame.start();
+		} 
+		catch (FrameAlreadyExistsException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	/* START setters and getters */
 	
+	/**
+	 * Returns the instance
+	 * @return
+	 */
 	public AwesomeEngine getInstance()
 	{
 		return instance;
-	}
-	
-	public int getWidth()
-	{
-		return WIDTH*SCALE;
-	}
-	
-	public static int getHeight()
-	{
-		return HEIGHT*SCALE;
 	}
 
 	/* END setters and getters */
@@ -63,8 +56,14 @@ public abstract class AwesomeEngine implements Runnable
 	@Override
 	public abstract void run();
 	
+	/**
+	 * Handles the game logic
+	 */
 	public abstract void tick();
 	
+	/**
+	 * Renders the screen
+	 */
 	public abstract void render();
 
 }

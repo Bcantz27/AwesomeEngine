@@ -2,32 +2,56 @@ package Engine.TestApp;
 
 import Engine.AwesomeEngine;
 import Engine.Exceptions.ApplicationAlreadyExistsException;
+import Engine.Gui.MainFrame;
 
+/**
+ * @author Bryan
+ * This is a Test driver for the Engine
+ *
+ */
 public class Main extends AwesomeEngine
 {
+	private static boolean playing; 					/*  if this is true than the engine is running, otherwise the engine is idle. */
+	private static int tickCount = 0;					/*  current tick count */
+	
+	/**
+	 * Constuctor for this class
+	 * @throws ApplicationAlreadyExistsException
+	 */
 	protected Main() throws ApplicationAlreadyExistsException 
 	{
 
 	}
-
-	private static boolean playing;
-	private static int tickCount = 0;
 	
+	/**
+	 * Main method
+	 * @param args
+	 * @throws ApplicationAlreadyExistsException
+	 */
 	public static void main(String[] args) throws ApplicationAlreadyExistsException
 	{
 		Main gameMain = new Main();
+		MainFrame.getInstance().setName("AWESOME GAME - MADE WITH AWESOME ENGINE!");
 		gameMain.start();
 	}
 	
 	/* START setters and getters */
-	public boolean Playing()
+	/**
+	 * Returns the state of playing
+	 * @return playing
+	 */
+	public boolean isPlaying()
 	{
 		return playing;
 	}
 	
-	public void setPlaying(boolean play)
+	/**
+	 * Sets the state of playing
+	 * @param playing
+	 */
+	public void setPlaying(boolean playing)
 	{
-		playing = play;
+		this.playing = playing;
 	}
 	/* END setters and getters */
 	
@@ -42,6 +66,9 @@ public class Main extends AwesomeEngine
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see Engine.AwesomeEngine#run()
+	 */
 	public void run() 
 	{
 		long lastTime = System.nanoTime();
@@ -92,12 +119,18 @@ public class Main extends AwesomeEngine
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see Engine.AwesomeEngine#tick()
+	 */
 	public void tick()
 	{
 		tickCount++;
 
 	}
 
+	/* (non-Javadoc)
+	 * @see Engine.AwesomeEngine#render()
+	 */
 	public void render()
 	{
 
