@@ -1,58 +1,34 @@
 package Engine.Entity;
 
-import Engine.Entity.Characteristics.Vital;
-
 public class Mob extends LivingEntity
 {
-	private Vital health;
-	private Vital energy;
-	private Vital mana;
 	private boolean hostile;
 
 	public Mob(String newName, int newId) {
-		super(newName, newId, 0, 0);
+		super(newName, newId, 0, 0,100,100,100);
 		hostile = false;
-		health = new Vital("Health", 100, 100);
-		energy = new Vital("Energy", 100, 100);
-		mana = new Vital("Mana", 100, 100);
 	}
 	
 	public Mob(String newName, int newId, int newX, int newY, int maxHealth, int maxEnergy, int maxMana, boolean Hostility) {
-		super(newName, newId, newX, newY);
+		super(newName, newId, newX, newY,maxHealth,maxEnergy,maxMana);
 		hostile = Hostility;
-		health = new Vital("Health", maxHealth, maxHealth);
-		energy = new Vital("Energy", maxEnergy, maxEnergy);
-		mana = new Vital("Mana", maxMana, maxMana);
 	}
 	
 	public Mob(String newName, int newId, int newX, int newY, int maxHealth, int maxEnergy, int maxMana) {
-		super(newName, newId, newX, newY);
+		super(newName, newId, newX, newY,maxHealth,maxEnergy,maxMana);
 		hostile = false;
-		health = new Vital("Health", maxHealth, maxHealth);
-		energy = new Vital("Energy", maxEnergy, maxEnergy);
-		mana = new Vital("Mana", maxMana, maxMana);
 	}
 	
-/* START setters and getters */
-	
-	public Vital Health()
-	{
-		return health;
-	}
-	
-	public Vital Energy()
-	{
-		return energy;
-	}
-	
-	public Vital Mana()
-	{
-		return mana;
-	}
+	/* START setters and getters */
 	
 	public boolean isHostile()
 	{
 		return hostile;
+	}
+	
+	public void setHostile(boolean hostile)
+	{
+		this.hostile = hostile;
 	}
 	
 	/* END setters and getters */

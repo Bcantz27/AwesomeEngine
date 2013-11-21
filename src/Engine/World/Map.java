@@ -13,6 +13,8 @@ public class Map
 		map = new Tile[width][height];
 	}
 	
+	/* START setters and getters */
+	
 	public int getWidth()
 	{
 		return mapWidth;
@@ -22,6 +24,8 @@ public class Map
 	{
 		return mapHeight;
 	}
+	
+	/* END setters and getters */
 	
 	public Tile getTile(int x, int y)
 	{

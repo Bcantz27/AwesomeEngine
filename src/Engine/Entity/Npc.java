@@ -4,26 +4,21 @@ import Engine.Entity.Characteristics.Vital;
 
 public class Npc extends LivingEntity
 {
-	private Vital health = new Vital("Health", 100, 100);
 	private String[] dialog;
 
-	public Npc(String newName, int newId) {
-		super(newName, newId, 0, 0);
+	public Npc(String newName, int newId) 
+	{
+		super(newName, newId, 0, 0,100,100,100);
 	}
 	
-	public Npc(String newName, int newId, int newX, int newY) {
-		super(newName, newId, newX, newY);
+	public Npc(String newName, int newId, int newX, int newY,int maxHealth, int maxEnergy, int maxMana) 
+	{
+		super(newName, newId, newX, newY,maxHealth,maxEnergy, maxMana);
 	}
 
-/* START setters and getters */
-	
-	public Vital Health()
-	{
-		return health;
-	}
-	
+	/* START setters and getters */
+
 	/* END setters and getters */
-	
 	
 	public static Npc getNpcByID(int id)
 	{

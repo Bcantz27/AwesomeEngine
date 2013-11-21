@@ -33,6 +33,8 @@ public class Level
 		map = new Map(width,height);
 	}
 	
+	/* START setters and getters */
+	
 	public String getName()
 	{
 		return name;
@@ -53,7 +55,9 @@ public class Level
 		this.name = name;
 	}
 	
-	public Player getPlayer(String name) throws PlayerNotOnLevelException
+	/* END setters and getters */
+	
+	public Player getPlayerNamed(String name) throws PlayerNotOnLevelException
 	{
 		Player player = null;
 		
