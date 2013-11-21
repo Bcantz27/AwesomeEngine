@@ -2,7 +2,7 @@ package Engine.Entity;
 
 import Engine.Entity.Characteristics.Vital;
 
-public class Player extends Entity
+public class Player extends LivingEntity
 {
 	private Vital health;
 	private Vital energy;

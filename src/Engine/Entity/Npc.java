@@ -2,7 +2,7 @@ package Engine.Entity;
 
 import Engine.Entity.Characteristics.Vital;
 
-public class Npc extends Entity
+public class Npc extends LivingEntity
 {
 	private Vital health = new Vital("Health", 100, 100);
 	private String[] dialog;

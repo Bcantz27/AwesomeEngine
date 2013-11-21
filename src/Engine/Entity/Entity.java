@@ -14,7 +14,6 @@ public abstract class Entity
 	protected String name;
 	protected int id;
 	protected Position position = new Position();
-	protected boolean alive;
 	protected BufferedImage image;
 	
 	protected Animator animator = new Animator(2);
@@ -25,7 +24,6 @@ public abstract class Entity
 	{
 		position.setPosition(0, 0);
 		name = "No Name";
-		alive = true;
 		id = 0;
 		//image = LoadImageOfEntity(id);
 	}
@@ -34,7 +32,6 @@ public abstract class Entity
 	{
 		position.setPosition(newX, newY);
 		name = newName;
-		alive = true;
 		id = newId;
 		//image = LoadImageOfEntity(newId);
 	}
@@ -49,11 +46,6 @@ public abstract class Entity
 	public String  Name()
 	{
 		return name;
-	}
-	
-	public boolean isAlive()
-	{
-		return alive;
 	}
 	
 	public Animator getAnimator()
@@ -79,11 +71,6 @@ public abstract class Entity
 	public void setId(int newId)
 	{
 		id = newId;
-	}
-	
-	public void setAlive(boolean alive)
-	{
-		this.alive = alive;
 	}
 	
 	public void setPosition(Position pos)
