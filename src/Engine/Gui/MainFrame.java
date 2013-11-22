@@ -15,6 +15,8 @@ public class MainFrame extends JFrame
 	private static int SCALE = 5;						/* Scale of the frame */
 	private static String NAME = "Insert Name Here";	/* Name of the frame */
 	
+	public static PaneManager paneManager;
+	
 	private static MainFrame instance;					/* Instance of this class (Singleton) */
 	
 	public MainFrame() throws FrameAlreadyExistsException
@@ -27,6 +29,10 @@ public class MainFrame extends JFrame
 		{
 			throw new Engine.Exceptions.FrameAlreadyExistsException();
 		}
+		
+		paneManager = new PaneManager();
+		
+		this.add(paneManager);
 	}
 	
 	/* START setters and getters */
@@ -40,7 +46,7 @@ public class MainFrame extends JFrame
 		return instance;
 	}
 	
-	public int getScale()
+	public static int getScale()
 	{
 		return SCALE;
 	}

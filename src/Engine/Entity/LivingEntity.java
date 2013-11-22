@@ -59,6 +59,18 @@ public class LivingEntity extends Entity
 	{
 		return mana;
 	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void tick() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	/* END setters and getters */
 }

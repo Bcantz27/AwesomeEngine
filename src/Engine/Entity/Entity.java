@@ -80,6 +80,10 @@ public abstract class Entity
 	
 	/* END setters and getters */
 	
+	public abstract void render();
+	
+	public abstract void tick();
+	
 	@SuppressWarnings("unused")
 	private BufferedImage LoadImageOfEntity(int id)
 	{
