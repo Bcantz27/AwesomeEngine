@@ -25,12 +25,12 @@ public class GamePane extends JPanel
 		g.dispose();
 	}
 	
-	public void render()
+	public static void render()
 	{
 		Graphics g = game.getGraphics();
 		
-		g.dispose();
 		view.repaint();
+		g.dispose();
 	}
 
 }

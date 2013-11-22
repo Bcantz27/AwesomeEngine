@@ -2,6 +2,7 @@ package Engine.TestApp;
 
 import Engine.AwesomeEngine;
 import Engine.Exceptions.ApplicationAlreadyExistsException;
+import Engine.Gui.GamePane;
 import Engine.Gui.MainFrame;
 
 /**
@@ -133,6 +134,6 @@ public class Main extends AwesomeEngine
 	 */
 	public void render()
 	{
-
+		GamePane.render();
 	}
 }

@@ -47,4 +47,9 @@ public class Map
 		map[x][y] = t;
 	}
 	
+	public void renderIso()
+	{
+		
+	}
+	
 }

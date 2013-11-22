@@ -57,6 +57,11 @@ public class Level
 	
 	/* END setters and getters */
 	
+	public void render()
+	{
+		map.renderIso();
+	}
+	
 	public Player getPlayerNamed(String name) throws PlayerNotOnLevelException
 	{
 		Player player = null;
