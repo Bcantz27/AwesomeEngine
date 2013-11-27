@@ -1,17 +1,11 @@
 package Engine;
 
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-
 import Engine.Exceptions.ApplicationAlreadyExistsException;
 import Engine.Exceptions.FrameAlreadyExistsException;
 import Engine.Gui.MainFrame;
 
 public abstract class AwesomeEngine implements Runnable
 {
-	private static final long serialVersionUID = 1L;
-
 	private static AwesomeEngine instance;					/* Instance of this class (Singleton) */
 	
 	/**

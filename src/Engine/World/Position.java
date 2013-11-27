@@ -6,8 +6,6 @@ public class Position
 	private float y = 0;
 	private float isoX = x - y;
 	private float isoY = (x + y) / 2;
-	private float screenX;
-	private float screenY;
 	
 	public Position()
 	{
@@ -21,18 +19,16 @@ public class Position
 		y = newY;
 		isoX = x - y;
 		isoY = (x + y) / 2;
-		screenX = (isoX - isoY) * 64;
-		screenY = (isoX + isoY) * 16;
 	}
 	
 	/* START Setters and Getters */
 	
-	public float getCartX()
+	public float getX()
 	{
 		return x;
 	}
 	
-	public float getCartY()
+	public float getY()
 	{
 		return y;
 	}
@@ -47,24 +43,12 @@ public class Position
 		return isoY;
 	}
 	
-	public float getScreenX()
-	{
-		return screenX;
-	}
-	
-	public float getScreenY()
-	{
-		return screenY;
-	}
-	
 	public void setPosition(float newX, float newY)
 	{
 		x = newX;
 		y = newY;
 		isoX = x - y;
 		isoY = (x + y) / 2;
-		screenX = (isoX - isoY) * 64;
-		screenY = (isoX + isoY) * 16;
 	}
 	
 	/* END Setters and Getters */
@@ -75,13 +59,11 @@ public class Position
 		y += shiftY;
 		isoX = x - y;
 		isoY = (x + y) / 2;
-		screenX = (isoX - isoY) * 64;
-		screenX = (isoX + isoY) * 16;
 	}
 	
 	public boolean compare(Position pos)
 	{
-		if(pos.getCartX() == x && pos.getCartY() == y)
+		if(pos.getX() == x && pos.getY() == y)
 		{
 			return true;
 		}

@@ -1,5 +1,6 @@
 package Engine.World;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +13,18 @@ import Engine.Exceptions.PlayerNotOnLevelException;
 public class Level 
 {
 	private String name;
-	private Map map;
+	private Map map = new Map(10,10);
 	private List<Entity> entitiesOnLevel = new ArrayList<Entity>();
+	private static Player player = new Player("Player");
 	
 	public Level()
 	{
 		this.name = "No Name";
-		map = new Map(10,10);
 	}
 	
 	public Level(String name)
 	{
 		this.name = name;
-		map = new Map(10,10);
 	}
 	
 	public Level(String name, int width, int height)
@@ -45,6 +45,11 @@ public class Level
 		return map;
 	}
 	
+	public Player getPlayer()
+	{
+		return player;
+	}
+	
 	public List<Entity> getEntities()
 	{
 		return entitiesOnLevel;
@@ -57,9 +62,10 @@ public class Level
 	
 	/* END setters and getters */
 	
-	public void render()
+	public void render(Graphics g)
 	{
-		map.renderIso();
+		//if(map == null) map.generateMap();
+		map.renderIso(g);
 	}
 	
 	public Player getPlayerNamed(String name) throws PlayerNotOnLevelException

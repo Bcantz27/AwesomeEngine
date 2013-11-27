@@ -12,7 +12,7 @@ public class MainFrame extends JFrame
 		
 	private static int WIDTH = 256;						/* Width of the frame */
 	private static int HEIGHT = WIDTH/12*9;				/* Height of the frame */
-	private static int SCALE = 5;						/* Scale of the frame */
+	private static int SCALE = 4;						/* Scale of the frame */
 	private static String NAME = "Insert Name Here";	/* Name of the frame */
 	
 	public static PaneManager paneManager;
@@ -24,7 +24,7 @@ public class MainFrame extends JFrame
 		if (null == instance)
 		{
 			instance = this;
-		} 
+		}
 		else
 		{
 			throw new Engine.Exceptions.FrameAlreadyExistsException();
@@ -76,13 +76,13 @@ public class MainFrame extends JFrame
 	
 	public void setName(String name)
 	{
-		this.NAME = name;
+		NAME = name;
 		this.setTitle(NAME);
 	}
 	
 	public void setScale(int scale)
 	{
-		this.SCALE = scale;
+		SCALE = scale;
 		resizeFrame();
 	}
 

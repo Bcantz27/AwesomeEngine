@@ -8,13 +8,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Engine.World.Level;
+
 public class GamePane extends JPanel
 {	
+	private static final long serialVersionUID = 1L;
 	public static JLabel view;
 	public static BufferedImage game;
+	public static Level CurrentLevel;
 
 	public GamePane()
 	{
+		CurrentLevel = new Level("Temp Level",100,100);
+		this.setOpaque(false);
 		game = new BufferedImage(MainFrame.getInstance().getWidth(),MainFrame.getInstance().getHeight(),BufferedImage.TYPE_INT_RGB);
 		view = new JLabel(new ImageIcon(game));
 		Graphics g = game.getGraphics();
@@ -29,8 +35,10 @@ public class GamePane extends JPanel
 	{
 		Graphics g = game.getGraphics();
 		
-		view.repaint();
+		CurrentLevel.render(g);
+		
 		g.dispose();
+		view.repaint();
 	}
 
 }
